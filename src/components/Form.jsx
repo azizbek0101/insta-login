@@ -1,6 +1,7 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import './Form.css';
-import Logo from '../images/840px-Instagram_logosvg.png'
+import Logo from '../images/840px-Instagram_logosvg.png';
+import { Link } from "react-router-dom"
 
 function FormFn() {
     const SiteContent ={
@@ -49,12 +50,10 @@ function FormFn() {
     }
 
     const [lang, setLang] = useState("uz")
-    const [mode, setMode] = useState("lightMode")
 
     const blockRef = React.useRef(null)
     const textRef = React.useRef(null)
     const formRef = React.useRef(null)
-
     const modeBtnRef = React.useRef(null)
 
     return(
@@ -83,26 +82,16 @@ function FormFn() {
                     modeBtnRef.current.textContent = SiteContent[lang].mode.darkMode
                 }else{
                     modeBtnRef.current.textContent = SiteContent[lang].mode.lightMode
-
                 }
-                
-
             }}
         >{SiteContent[lang].mode.lightMode}</button>
 
         </header>
         
         {/* Logotip */}
-
-        <a 
-        className="logo-link"
-        href="#">
-            <img
-            className="logo-img"
-            src={Logo} alt="" />
-        </a>
-
-        {/* Heading */}
+       <Link className="logo-link" to="/">
+            <img src={Logo} alt="logo" width="300"/>
+       </Link> 
 
 
         {/* Form Registration */}
@@ -141,7 +130,6 @@ function FormFn() {
         <button>{SiteContent[lang].btnLogin}</button>
         </div>
         </div>
-        
         </>
     )
     
